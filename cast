@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+int main (void)
+
+//Prompt user for a positive value of cash owed 
+{
+    float y;
+    do 
+    {
+        y = get_float ("Change owed:");
+    }
+    while (y<0.0 || y == 0.0);
+
+//Multiply value by 100 to obtain starting value for subsequent calculations
+
+    int cents = round (y * 100);
+
+//Define ints of the following calculations
+
+    int q; // remainder of quarters divisions
+    int qx; // amount of quarters
+    int d; // remainder of dimes divisions
+    int dx; // amount of dimes
+    int n; // remainder of nickels divisions
+    int nx; // amount of nickels
+    int p; // remainder of pennies divisions
+    int px; // amount pennies 
+    int coins;
+
+// calculations
+
+    q = cents % 25;
+    qx = (cents - q) / 25;
+    d = q % 10;
+    dx = (q - d)/10; 
+    n = d % 5;
+    nx = (d - n)/5;
+    p = n % 1 ;
+    px = (n-p)/1;
+    coins = qx + dx + nx + px;
+
+// display final results 
+
+    printf ("Coins:%i\n", coins);
+
+    
+}
